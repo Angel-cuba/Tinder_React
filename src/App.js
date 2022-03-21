@@ -1,8 +1,15 @@
+import { Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
+import OnBoard from './pages/OnBoard';
+
 function App() {
 	return (
-		<div className="App">
-			<h1>Angel</h1>
-		</div>
+		<Routes>
+			<Route path="" element={<Home />} />
+			<Route path="/dashboard" element={<Dashboard />} />
+			<Route path="/onboard" element={<OnBoard />} />
+		</Routes>
 	);
 }
 
