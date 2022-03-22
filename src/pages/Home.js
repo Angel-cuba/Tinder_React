@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AuthModal from '../components/AuthModal';
 import Navbar from '../components/Navbar';
 import { useStyles } from './styles/HomeStyles';
 
 const Home = () => {
+	const [showModal, setShowModal] = useState(false);
+	const [isSignUp, setIsSignUp] = useState(true);
+
 	const styles = useStyles();
 	const authToken = false;
 	const minimal = false;
 
-	const handleSwipeRight = (e) => {
-		console.log(e);
+	const handleClick = (e) => {
+		setShowModal(true);
+		setIsSignUp(true);
 	};
 
 	return (
 		<>
 			<div className={styles.overLay}>
-				<Navbar minimal={minimal} authToken={authToken} />
+				<Navbar
+					minimal={minimal}
+					authToken={authToken}
+					setShowModal={setShowModal}
+					showModal={showModal}
+					setIsSignUp={setIsSignUp}
+				/>
 				<div className={styles.home}>
-					<h1>Swipe Right 🚀</h1>
-					<button className={styles.primary} onClick={handleSwipeRight}>
+					<h1 className={styles.title}>Swipe Right 🚀</h1>
+					<button className={styles.primary} onClick={handleClick}>
 						{authToken ? 'Sign Out' : 'Sign Up'}
 					</button>
+
+					{showModal && (
+						<AuthModal setShowModal={setShowModal} setIsSignUp={setIsSignUp} isSignUp={isSignUp} />
+					)}
 				</div>
 			</div>
 		</>

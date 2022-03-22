@@ -1,8 +1,13 @@
 import React from 'react';
 import { useStyles } from './styles/NavbarStyles';
 
-const Navbar = ({ minimal, authToken }) => {
+const Navbar = ({ minimal, authToken, showModal, setShowModal, setIsSignUp }) => {
 	const styles = useStyles();
+
+	const handleClick = () => {
+		setShowModal(true);
+		setIsSignUp(false);
+	};
 	return (
 		<nav className={styles.navbar}>
 			<div>
@@ -17,7 +22,13 @@ const Navbar = ({ minimal, authToken }) => {
 				/>
 			</div>
 			{!authToken && !minimal && (
-				<button className={!minimal ? styles.loginMinimal : styles.login}>Log in</button>
+				<button
+					className={!minimal ? styles.loginMinimal : styles.login}
+					onClick={handleClick}
+					// disabled={showModal}
+				>
+					Log in
+				</button>
 			)}
 		</nav>
 	);

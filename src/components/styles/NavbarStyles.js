@@ -50,4 +50,7 @@ export const useStyles = makeStyles({
 			cursor: 'pointer',
 		},
 	},
+	disable: {
+		backgroundColor: 'red',
+	},
 });
