@@ -21,7 +21,6 @@ const Home = () => {
 			<div className={styles.overLay}>
 				<Navbar
 					minimal={minimal}
-					authToken={authToken}
 					setShowModal={setShowModal}
 					showModal={showModal}
 					setIsSignUp={setIsSignUp}
