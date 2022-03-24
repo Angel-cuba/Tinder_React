@@ -1,15 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useStyles } from './styles/OnBoardStyles';
 
 const OnBoard = () => {
 	const styles = useStyles();
+
+	const [formData, setFormData] = useState({
+		user_id: '',
+		first_name: '',
+		dob_day: '',
+		dob_month: '',
+		dob_year: '',
+		show_gender: false,
+		gender_identity: '',
+		gender_interest: '',
+		email: '',
+		profile_picture: '',
+		about: '',
+		matches: [],
+	});
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log(formData);
 	};
-	const handleChange = (e) => {};
+	const handleChange = (e) => {
+		const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+		const name = e.target.name;
+		setFormData((prevState) => ({
+			...prevState,
+			[name]: value,
+		}));
+	};
+	console.log(formData);
+
 	return (
-		<div>
+		<div className="content">
 			<Navbar
 				minimal={true}
 				// authToken={false}
@@ -18,7 +43,7 @@ const OnBoard = () => {
 				// setIsSignUp={false}
 			/>
 			<div className={styles.onboard}>
-				<h2>Create a new board</h2>
+				<h2>Create a new account!</h2>
 
 				<form onSubmit={handleSubmit} className={styles.form}>
 					<section className={styles.section}>
@@ -30,7 +55,18 @@ const OnBoard = () => {
 							placeholder="First Name"
 							className={styles.inputs}
 							required
-							value={''}
+							value={formData.first_name}
+							onChange={handleChange}
+						/>
+						<label htmlFor="email">Email</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							placeholder="Email"
+							className={styles.inputs}
+							required
+							value={formData.email}
 							onChange={handleChange}
 						/>
 
@@ -41,8 +77,11 @@ const OnBoard = () => {
 								id="dob_day"
 								name="dob_day"
 								placeholder="DD"
+								min={1}
+								max={31}
 								className={styles.inputs}
 								required={true}
+								value={formData.dob_day}
 								onChange={handleChange}
 							/>
 
@@ -51,8 +90,11 @@ const OnBoard = () => {
 								id="dob_month"
 								name="dob_month"
 								placeholder="MM"
+								min={1}
+								max={12}
 								className={styles.inputs}
 								required={true}
+								value={formData.dob_month}
 								onChange={handleChange}
 							/>
 							<input
@@ -60,8 +102,11 @@ const OnBoard = () => {
 								id="dob_year"
 								name="dob_year"
 								placeholder="YYYY"
+								min={1960}
+								max={2004}
 								className={styles.inputs}
 								required={true}
+								value={formData.dob_year}
 								onChange={handleChange}
 							/>
 						</div>
@@ -73,12 +118,12 @@ const OnBoard = () => {
 							<input
 								type="radio"
 								id="man_gender"
-								name="gender"
+								name="gender_identity"
 								placeholder="DD"
 								value="man"
 								className={styles.inputs}
 								onChange={handleChange}
-								checked={false}
+								checked={formData.gender_identity === 'man'}
 							/>
 							<label className={styles.label} htmlFor="woman">
 								Woman
@@ -86,12 +131,12 @@ const OnBoard = () => {
 							<input
 								type="radio"
 								id="woman_gender"
-								name="gender"
+								name="gender_identity"
 								placeholder="DD"
 								value="woman"
 								className={styles.inputs}
 								onChange={handleChange}
-								checked={false}
+								checked={formData.gender_identity === 'woman'}
 							/>
 							<label className={styles.label} htmlFor="more">
 								More
@@ -99,23 +144,23 @@ const OnBoard = () => {
 							<input
 								type="radio"
 								id="other_gender"
-								name="gender"
+								name="gender_identity"
 								placeholder="DD"
 								value="more"
 								className={styles.inputs}
 								onChange={handleChange}
-								checked={false}
+								checked={formData.gender_identity === 'more'}
 							/>
 						</div>
 						<label htmlFor="show_gender">Show gender on my profile</label>
 						<div className={styles.showGender}>
 							<input
 								type="checkbox"
-								id="show-gender"
+								id="show_gender"
 								name="show_gender"
 								className={styles.inputs}
 								onChange={handleChange}
-								checked={false}
+								checked={formData.show_gender}
 							/>
 						</div>
 
@@ -131,7 +176,7 @@ const OnBoard = () => {
 								value="man"
 								className={styles.inputs}
 								onChange={handleChange}
-								checked={false}
+								checked={formData.gender_interest === 'man'}
 							/>
 							<label className={styles.label} htmlFor="woman">
 								Woman
@@ -143,7 +188,7 @@ const OnBoard = () => {
 								value="woman"
 								className={styles.inputs}
 								onChange={handleChange}
-								checked={false}
+								checked={formData.gender_interest === 'woman'}
 							/>
 							<label className={styles.label} htmlFor="more">
 								Everyone
@@ -155,7 +200,7 @@ const OnBoard = () => {
 								value="everyone"
 								className={styles.inputs}
 								onChange={handleChange}
-								checked={false}
+								checked={formData.gender_interest === 'everyone'}
 							/>
 						</div>
 
@@ -166,7 +211,7 @@ const OnBoard = () => {
 							name="about"
 							required
 							placeholder="I like longs walks..."
-							value={''}
+							value={formData.about}
 							className={styles.inputs}
 							onChange={handleChange}
 						/>
@@ -180,9 +225,17 @@ const OnBoard = () => {
 							name="profile_picture"
 							className={styles.inputs}
 							onChange={handleChange}
+							// value={formData.}
 							required
 						/>
-						<div className={styles.profile}></div>
+						<div className={styles.profilePhoto}>
+							<img
+								src={formData.profile_picture}
+								width="100%"
+								height="100%"
+								alt="Profile pic preview"
+							/>
+						</div>
 					</section>
 				</form>
 			</div>

@@ -1,6 +1,7 @@
 import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles({
+	content: {},
 	form: {
 		display: 'flex',
 		justifyContent: 'center',
@@ -20,11 +21,8 @@ export const useStyles = makeStyles({
 	onboard: {},
 	multiple: {
 		display: 'flex',
-		// flexDirection: 'column',
 	},
 	genders: {
-		// display: 'flex',
-		// flexDirection: 'column',
 		marginTop: '12px',
 		marginBottom: '35px',
 	},
@@ -55,5 +53,9 @@ export const useStyles = makeStyles({
 		cursor: 'pointer',
 		borderRadius: '10px',
 		boxShadow: '0 0 3px 0 rgba(0, 0, 0, 0.3)',
+	},
+	profilePhoto: {
+		width: '300px',
+		height: '300px',
 	},
 });
