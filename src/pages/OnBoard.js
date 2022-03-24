@@ -67,7 +67,9 @@ const OnBoard = () => {
 						</div>
 						<label htmlFor="gender">Gender</label>
 						<div className={styles.genders}>
-							<label htmlFor="man">Man</label>
+							<label className={styles.label} htmlFor="man">
+								Man
+							</label>
 							<input
 								type="radio"
 								id="man_gender"
@@ -78,7 +80,9 @@ const OnBoard = () => {
 								onChange={handleChange}
 								checked={false}
 							/>
-							<label htmlFor="woman">Woman</label>
+							<label className={styles.label} htmlFor="woman">
+								Woman
+							</label>
 							<input
 								type="radio"
 								id="woman_gender"
@@ -89,7 +93,9 @@ const OnBoard = () => {
 								onChange={handleChange}
 								checked={false}
 							/>
-							<label htmlFor="more">More</label>
+							<label className={styles.label} htmlFor="more">
+								More
+							</label>
 							<input
 								type="radio"
 								id="other_gender"
@@ -101,18 +107,23 @@ const OnBoard = () => {
 								checked={false}
 							/>
 						</div>
-						<label htmlFor="show-gender">Show gender on my profile</label>
-						<input
-							type="checkbox"
-							id="show-gender"
-							name="show_gender"
-							className={styles.inputs}
-							onChange={handleChange}
-							checked={false}
-						/>
+						<label htmlFor="show_gender">Show gender on my profile</label>
+						<div className={styles.showGender}>
+							<input
+								type="checkbox"
+								id="show-gender"
+								name="show_gender"
+								className={styles.inputs}
+								onChange={handleChange}
+								checked={false}
+							/>
+						</div>
+
 						<label> Show me</label>
-						<div>
-							<label htmlFor="man">Man</label>
+						<div className={styles.showMe}>
+							<label className={styles.label} htmlFor="man">
+								Man
+							</label>
 							<input
 								type="radio"
 								id="man_gender_interest"
@@ -122,7 +133,9 @@ const OnBoard = () => {
 								onChange={handleChange}
 								checked={false}
 							/>
-							<label htmlFor="woman">Woman</label>
+							<label className={styles.label} htmlFor="woman">
+								Woman
+							</label>
 							<input
 								type="radio"
 								id="woman_gender_interest"
@@ -132,7 +145,9 @@ const OnBoard = () => {
 								onChange={handleChange}
 								checked={false}
 							/>
-							<label htmlFor="more">Everyone</label>
+							<label className={styles.label} htmlFor="more">
+								Everyone
+							</label>
 							<input
 								type="radio"
 								id="everyone_gender_interest"
@@ -144,7 +159,7 @@ const OnBoard = () => {
 							/>
 						</div>
 
-						<label htmlFor="">About</label>
+						<label htmlFor="about">About me</label>
 						<input
 							type="text"
 							id="about"
@@ -155,7 +170,7 @@ const OnBoard = () => {
 							className={styles.inputs}
 							onChange={handleChange}
 						/>
-						<input type="submit" />
+						<input type="submit" className={styles.buttonSubmit} />
 					</section>
 					<section className={styles.section}>
 						<label htmlFor="">Profile picture</label>
