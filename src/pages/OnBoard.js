@@ -230,11 +230,31 @@ const OnBoard = () => {
 						/>
 						<div className={styles.profilePhoto}>
 							<img
-								src={formData.profile_picture}
-								width="100%"
-								height="100%"
+								src={
+									formData.profile_picture
+										? formData.profile_picture
+										: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1648218398/istockphoto-1132926013-612x612_t1xwec.jpg'
+								}
 								alt="Profile pic preview"
+								style={{
+									width: '100%',
+									height: '100%',
+									borderRadius: '8px',
+									boxShadow: '0 0 8px rgba(255,255,255, 0.12)',
+								}}
 							/>
+							{!formData.profile_picture && (
+								<h2
+									style={{
+										color: 'whitesmoke',
+										border: '1px solid white',
+										borderRadius: '5px',
+										padding: '15px',
+									}}
+								>
+									Plzzz, choose profile picture
+								</h2>
+							)}
 						</div>
 					</section>
 				</form>
