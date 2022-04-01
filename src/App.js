@@ -6,9 +6,10 @@ import OnBoard from './pages/OnBoard';
 function App() {
 	return (
 		<Routes>
-			<Route path="" element={<Home />} />
+			<Route path="/" element={<Home />} />
 			<Route path="/dashboard" element={<Dashboard />} />
 			<Route path="/onboard" element={<OnBoard />} />
+			<Route path="*" element={<Home />} />
 		</Routes>
 	);
 }
