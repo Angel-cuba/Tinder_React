@@ -7,4 +7,5 @@ export const useStyles = makeStyles({
 	image: {},
 	logOutIcon: {},
 	// MatchesDisplay
+	matchesDisplay: {},
 });

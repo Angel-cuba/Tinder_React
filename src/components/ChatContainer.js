@@ -7,9 +7,9 @@ import { useStyles } from './styles/ChatContainerStyles';
 const ChatContainer = () => {
 	const styles = useStyles();
 	return (
-		<div>
+		<div className={styles.chatContainer}>
 			<ChatHeader />
-			<div className="">
+			<div>
 				<button className={styles.options}>Matches</button>
 				<button className={styles.options}>Chat</button>
 			</div>

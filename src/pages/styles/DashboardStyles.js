@@ -3,7 +3,6 @@ import { makeStyles } from '@mui/styles';
 export const useStyles = makeStyles({
 	dashboard: {
 		display: 'flex',
-		flexDirection: 'column',
 		justifyContent: 'space-between',
 	},
 	swiperContainer: {
@@ -18,7 +17,6 @@ export const useStyles = makeStyles({
 		width: '400px',
 		height: '550px',
 		position: 'relative',
-		backgroundColor: 'red',
 	},
 	swipe: {
 		position: 'absolute',
