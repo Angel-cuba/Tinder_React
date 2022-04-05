@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AuthModal from '../components/AuthModal';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/small/Navbar';
 import { useStyles } from './styles/HomeStyles';
 
 const Home = () => {

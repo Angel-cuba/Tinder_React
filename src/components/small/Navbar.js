@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyles } from './styles/NavbarStyles';
+import { useStyles } from '../styles/NavbarStyles';
 
 const Navbar = ({ minimal, setShowModal, setIsSignUp }) => {
 	const styles = useStyles();
