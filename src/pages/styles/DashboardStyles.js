@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 export const useStyles = makeStyles({
 	dashboard: {
 		display: 'flex',
-		justifyContent: 'space-between',
+		// justifyContent: 'space-between',
 	},
 	swiperContainer: {
 		width: '70%',
@@ -17,6 +17,8 @@ export const useStyles = makeStyles({
 		width: '400px',
 		height: '550px',
 		position: 'relative',
+		display: 'flex',
+		justifyContent: 'center',
 	},
 	swipe: {
 		position: 'absolute',

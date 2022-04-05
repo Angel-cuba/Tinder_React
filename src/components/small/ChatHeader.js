@@ -7,7 +7,7 @@ const ChatHeader = () => {
 		<div className={classes.containerHeader}>
 			<div className={classes.profile}>
 				<div className={classes.image}>
-					<img src="" alt="" />
+					<img className={classes.profileImage} src="" alt="" />
 				</div>
 				<h3>Username</h3>
 			</div>

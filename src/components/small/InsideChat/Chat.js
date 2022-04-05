@@ -1,7 +1,9 @@
 import React from 'react';
+import { useStyles } from './../styles/stylesChat';
 
 const Chat = () => {
-	return <div>Chat</div>;
+	const classes = useStyles();
+	return <div className={classes.chatDisplay}>Chat</div>;
 };
 
 export default Chat;

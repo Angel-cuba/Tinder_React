@@ -1,6 +1,15 @@
 import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles({
-	chatInput: {},
+	chatDisplay: {
+		padding: '20px',
+		height: '60vh',
+		overflowY: 'scroll',
+	},
+	chatInput: {
+		padding: '20px',
+		display: 'flex',
+		flexDirection: 'column',
+	},
 	button: {},
 });
