@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useStyles } from './../styles/stylesChat';
+import { useStyles } from '../styles/stylesChat';
 
 const ChatInput = () => {
 	const [textArea, setTextArea] = useState();

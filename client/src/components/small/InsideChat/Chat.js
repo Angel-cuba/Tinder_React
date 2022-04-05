@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyles } from './../styles/stylesChat';
+import { useStyles } from '../styles/stylesChat';
 
 const Chat = () => {
 	const classes = useStyles();
