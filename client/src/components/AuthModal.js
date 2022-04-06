@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useStyles } from './styles/AuthStyles';
+import { readUser } from './../api/request';
+import { useNavigate } from 'react-router-dom';
 
 const AuthModal = ({ setShowModal, isSignUp }) => {
 	const [email, setEmail] = useState(null);
@@ -8,16 +10,21 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
 	const [error, setError] = useState(null);
 	const styles = useStyles();
 
+	const navigate = useNavigate();
 	const handleClick = () => {
 		setShowModal(false);
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			if (isSignUp && password !== confirmPassword) {
 				setError('Password needs to match');
+				return;
 			}
+
+			const response = await readUser(email, password);
+			if (response.status === 201) navigate('/onboard');
 		} catch (error) {
 			console.log(error);
 		}
