@@ -1,3 +1,4 @@
+const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const { serverPort } = require('./keytoserver/key.js');
@@ -10,6 +11,8 @@ module.exports = (app) => {
 	// middleware
 	app.use(cors());
 	app.use(morgan('dev'));
+
+	app.use(express.json());
 
 	// routes
 	app.use('/api', router);
